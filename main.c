@@ -11,7 +11,8 @@ int main() {
 	//**Button PA0 initilisation**
 	RCC->AHB1ENR |= (1 << 0);
 	GPIOA->MODER &= ~(1 << (0*2));
-	GPIOA->PUPDR &= ~(1 << (0*2));
+	GPIOA->PUPDR &= ~(3 << (0*2));
+	GPIOA->PUPDR |= (2 << (0*2));
 	
 	while(1) {
 		if (GPIOA->IDR & (1 << 0))
